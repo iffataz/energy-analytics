@@ -1,12 +1,12 @@
 # Energy Analytics
 
-Compact pipeline to pull Australian NEM public price data and IBEI emissions intensity, clean them, model daily features, and optionally load the outputs to Postgres or summarise recent movements with Gemini.
+Compact pipeline to pull Australian NEM public price data and IBEI emissions intensity, clean them, model daily features, and summarise recent movements with Gemini.
 
 ## What you get
 - Ingest scripts that download the latest IBEI emissions summary and all current public price zips
 - Cleaning functions to type, de-duplicate, and filter core fields
 - Joins and daily feature engineering (correlations, rolling stats, anomaly flags)
-- Optional loader to Postgres and optional Gemini explainer for the last 30 minutes
+- Optional Gemini explainer for the last 30 minutes
 - Data outputs kept out of git via .gitignore so you can regenerate locally
 
 ## Project structure
@@ -42,7 +42,6 @@ pip install -r requirements.txt
 `
 copy .env.example .env
 `
-- DATABASE_URL for Postgres if you want to load tables
 - GEMINI_API_KEY only needed for src/ai/gemini_explainer.py
 
 ## Data pipeline
@@ -91,5 +90,6 @@ It fetches the last few rows for a region and returns a 12-sentence summary of p
 
 ## Troubleshooting
 - If parsing timestamps fails, confirm the raw AEMO files retain the YYYY/MM/DD HH:MM:SS format.
-- Network downloads rely on equests; corporate proxies may need HTTP(S)_PROXY env vars.
+- Network downloads rely on 
+equests; corporate proxies may need HTTP(S)_PROXY env vars.
 - Postgres loads replace tables; back up if you need history.
