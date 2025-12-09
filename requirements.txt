@@ -1,0 +1,21 @@
+# Core data handling
+pandas>=2.0.0
+numpy>=1.24.0
+
+# HTTP fetch + HTML parsing
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Machine learning + clustering + regression
+scikit-learn>=1.3.0
+
+# Database (Supabase Postgres)
+SQLAlchemy>=2.0.0
+psycopg2-binary>=2.9.9
+
+# Environment + AI helpers
+python-dotenv>=1.0.1
+google-genai>=0.3.0
+
+# Optional: in case you later add Prophet
+# prophet>=1.1.5
