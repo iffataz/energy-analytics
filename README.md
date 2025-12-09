@@ -69,14 +69,9 @@ python src/transform/model_join.py     # writes data/processed/price_emissions_j
 python src/transform/analysis_stats.py # writes data/processed/daily_price_features.csv
 `
 
-### 5) Optional: load to Postgres
-Set DATABASE_URL (or SUPABASE_DB_URL) then:
-`
-python src/load/load_to_postgres.py
-`
-Tables created in public schema: prices, emissions, price_emissions_joined, daily_price_features, price_emissions_regression_summary, price_forecast_sample (latter two only if files exist).
 
-### 6) Optional: Gemini explainer
+
+### 5) Optional: Gemini explainer
 Requires GEMINI_API_KEY and a joined dataset at data/processed/price_emissions_joined.csv:
 `
 python src/ai/gemini_explainer.py
